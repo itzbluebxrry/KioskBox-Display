@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="KioskBox_Display.Gradiyent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KioskBox_Display"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <muxc:ProgressRing Width="80" Height="80"/>
+        <muxc:WebView2 x:Name="webView" Source="https://gradiyent.netlify.app"/>
+        <Grid/>
+        <Button x:Name="backtohome"  Content="Home" Foreground="Transparent" Click="backtohome_Click" Style="{ThemeResource EllipsisButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" RequestedTheme="Light">
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator Modifiers="Control" Key="H"/>
+            </Button.KeyboardAccelerators>
+        </Button>
+
+        <muxc:TeachingTip x:Name="GoBackTeachingTip1"
+    PreferredPlacement="LeftBottom"
+    IsOpen="True"
+    Title="How to go back?"
+    Subtitle="Click on the bottom left corner, and you'll travel to the home page in no time!">
+            <muxc:TeachingTip.IconSource>
+                <muxc:SymbolIconSource Symbol="Home"/>
+            </muxc:TeachingTip.IconSource>
+        </muxc:TeachingTip>
+
+    </Grid>
+</Page>
