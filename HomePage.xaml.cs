@@ -16,7 +16,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.ViewManagement;
-
+using KioskBox_Display.Helpers;
+using KioskBox_Display.Enums;
+using Windows.ApplicationModel.Core;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace KioskBox_Display
@@ -52,13 +54,31 @@ namespace KioskBox_Display
         public async void viewdark_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["themeSetting"] = 1;
-            await new ThemeChangedPopup().ShowAsync();
+            var r = await MessageBox.Show(
+                "Restart required",
+                "To apply theme changes, you might need to restart the app.",
+                MessageBoxButtons.Custom,
+                "Restart Now",
+                "Dismiss");
+            if (r == MessageBoxResults.CustomResult1)
+            {
+                await CoreApplication.RequestRestartAsync("");
+            }
         }
 
         public async void viewlight_Click(object sender, RoutedEventArgs e)
         {
             ApplicationData.Current.LocalSettings.Values["themeSetting"] = 0;
-            await new ThemeChangedPopup().ShowAsync();
+            var r = await MessageBox.Show(
+                "Restart required",
+                "To apply theme changes, you might need to restart the app.",
+                MessageBoxButtons.Custom, 
+                "Restart Now",
+                "Dismiss");
+            if(r == MessageBoxResults.CustomResult1)
+            {
+                await CoreApplication.RequestRestartAsync("");
+            }
         }
 
         private async void about_Click(object sender, RoutedEventArgs e)
