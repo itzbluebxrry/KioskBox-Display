@@ -11,7 +11,7 @@
     <AssemblyName>KioskBox Display</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.22000.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -132,6 +132,9 @@
     </Compile>
     <Compile Include="Enums\Localized.cs" />
     <Compile Include="Enums\MessageBoxResults.cs" />
+    <Compile Include="Fullscreen_Alert.xaml.cs">
+      <DependentUpon>Fullscreen_Alert.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gradiyent.xaml.cs">
       <DependentUpon>Gradiyent.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\afterlife.mp3" />
+    <Content Include="Assets\app_browser.png" />
+    <Content Include="Assets\app_text.png" />
+    <Content Include="Assets\app_time.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\BadgeLogo.scale-125.png" />
     <Content Include="Assets\BadgeLogo.scale-150.png" />
@@ -210,6 +217,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="HomePage.old.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -224,6 +232,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="ContentDialog1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fullscreen_Alert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

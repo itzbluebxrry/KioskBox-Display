@@ -1,0 +1,28 @@
+﻿<ContentDialog
+    x:Class="KioskBox_Display.Fullscreen_Alert"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:KioskBox_Display"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    CornerRadius="8">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock FontWeight="SemiBold" FontSize="20" Margin="0,0,0,10">Leaving Fullscreen</TextBlock>
+
+            <TextBlock TextWrapping="WrapWholeWords" TextAlignment="Left" Text="Please be aware that the application is not optimized for use &#10;in windowed mode.&#10;&#10;To quickly toggle fullscreen mode, press Win + Shift + Enter"/>
+            <StackPanel >
+                <Grid Margin="0,15,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="okay" Style="{ThemeResource AccentButtonStyle}" Click="okay_Click" Content="I understand" Margin="0,20,5,0" HorizontalAlignment="Stretch" />
+                    <Button x:Name="cancel" Click="cancel_Click" Content="Go back" Margin="0,20,5,0" Grid.Column="1" HorizontalAlignment="Stretch"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

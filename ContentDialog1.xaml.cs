@@ -50,5 +50,10 @@ namespace KioskBox_Display
             var success = await Windows.System.Launcher.LaunchUriAsync(new Uri("https://youtube.com/@_itzbluebxrry"));
 
         }
+
+        private void done_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+        }
     }
 }

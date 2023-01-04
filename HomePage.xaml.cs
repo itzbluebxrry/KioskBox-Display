@@ -91,14 +91,25 @@ namespace KioskBox_Display
             Frame.Navigate(typeof(Gradiyent), null, new DrillInNavigationTransitionInfo());
         }
 
-        private void fullscreen_Click(object sender, RoutedEventArgs e)
+        private async void fullscreen_Click(object sender, RoutedEventArgs e)
         {
             {
+                
                 var view = ApplicationView.GetForCurrentView();
                 if (view.IsFullScreenMode)
                 {
-                    view.ExitFullScreenMode();
-                    ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
+                    var r = await MessageBox.Show(
+                "Leaving Fullscreen View",
+                "Please be aware that the application is not optimized for use in windowed mode, stay in fullscreen mode unless you know what are you doing.",
+                MessageBoxButtons.Custom,
+                "I understand",
+                "Go back");
+                    if (r == MessageBoxResults.CustomResult1)
+                    {
+                        view.ExitFullScreenMode();
+                        ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
+                    }
+
                     // The SizeChanged event will be raised when the exit from full-screen mode is complete.
                 }
                 else
